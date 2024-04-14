@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="selectdiv" >
+        <select id="options" onchange="optionSelected()">
+            <option value="like">აირჩიე საწვავი</option>
+            <option value="all_regular">all  regular</option>
+            <option value="all_premium">all premium</option>
+            <option value="all_super">all super</option>
+            <option value="all_dissel">all dissel</option>
+            <option value="all_gass">all Gass</option>
+        </select>
+    </div>
+   <div class="section1">
+        <div class="price_lukoil_wrapper box">
+            <h1>Price from lukoil</h1>
+            <!-- {% for paragraf in paragraphs %}
+
+                <li>{{ paragraf }}</li>
+            {% endfor %} -->
+            <li class="supereco">LUC : {{ paragraphs[0][1] +"  "+ paragraphs[0][0] }}</li>
+            <li class="super">LUC : {{ paragraphs[1][1] +"  "+paragraphs[1][0] }}</li>
+            <li class="premium">LUC : {{ paragraphs[2][1] +"  "+ paragraphs[2][0]}}</li>
+            <li class="euro_regular"> LUC : {{ paragraphs[3][1] +"  "+paragraphs[3][0] }}</li>
+            <li class="euro_dissel"> LUC : {{ paragraphs[4][1] +"  "+ paragraphs[4][0]}}</li>
+            
+        </div>
+        <div class="price_rompetrol_wrapper box">
+        <h1>Price from rompetrol</h1>
+            <!-- {% for paragraf2 in tr %}
+            <li>{{ paragraf2 }}</li>
+            {% endfor %} -->
+            <li class="super">ROM : {{ tr[1]}}</li>
+            <li class="premium">ROM : {{ tr[3]}}</li>
+            <li class="euro_regular">ROM : {{ tr[5] }}</li>
+            <li class="efix euro_dissel">ROM : {{ tr[7]}}</li>
+            <li class="euro_dissel"> ROM : {{ tr[9]}}</li>
+        </div>
+
+        <div class="price_gulf_wrapper box">
+        <h1>Price from gulf</h1>
+            <!-- {% for gulfprice in gulfdatas %}
+
+                <li>{{ gulfprice }}</li>
+            {% endfor %} -->
+            <li class="super">GULF : {{ gulfdatas[0][0] +" "+ gulfdatas[0][1] }}</li>
+            <li class="premium">GULF : {{ gulfdatas[1][0] +" "+gulfdatas[1][1] }}</li>
+            <li class="euro_regular g">GULF : {{ gulfdatas[2][0]+" "+gulfdatas[2][1] }}</li>
+            <li class="euro_regular">GULF : {{ gulfdatas[3][0] +" "+gulfdatas[3][1]}}</li>
+            <li class="euro_dissel g">GULF : {{ gulfdatas[4][0] +" "+gulfdatas[4][1]}}</li>
+            <li class="euro_dissel">GULF : {{ gulfdatas[5][0] +" "+gulfdatas[5][1]}}</li>
+            <li class="gass">GULF : {{ gulfdatas[6][0] +" "+gulfdatas[6][1]}}</li>
+
+        </div>  
+        
+        <div class="price_socar_wrapper box">
+            <h1>price from socar</h1>
+
+            <li class="super">SOC : ნანო სუპერი {{ socardatas[0][0] }}</li>
+            <li class="premium"> SOC : ნანო პრემიუმი {{ socardatas[0][1] }}</li>
+            <li class="euro_regular">SOC :  ნანო რეგულარი {{ socardatas[0][2] }}</li>
+            <li class="euro_dissel">SOC :  ევრო 5 დიზელი {{ socardatas[0][3] }}</li>
+
+            <li class="euro_dissel">SOC : ნანო ევრო 5 დიზელი {{ socardatas[1][0] }}</li>
+            <li class="gass">SOC : თხევადი გაზი LPG {{ socardatas[1][1] }}</li>
+            <li class="gass"> SOC : ბუნებრივი აირი CNG {{ socardatas[1][2] }}</li>
+            
+        </div>
+
+        <div class="price_portal_wrapper box">
+            <!-- ციკლს ხარვეზებით მოაქ რადგან საიტზეა დაშვებული შეცდომა ამიტო ხელით ვიღებ -->
+            <!--  ესე გამეორებული ფასებია['EURO REGULAR93+', '93+', '2.75', '2.75', '2.75'] -->
+            <h1>Price from portal</h1>
+            <li class="premium">POR : {{ portaldatas[0][0]+" :   "+ portaldatas[0][1] }}</li>
+            <li class="euro_regular">POR : {{ portaldatas[1][0]+" :   "+ portaldatas[1][2] }}</li>
+            <li class="euro_dissel">POR : {{ portaldatas[2][0]+" :   "+ portaldatas[2][1] }}</li>
+            <li class="euro_dissel">POR : {{ portaldatas[3][0]+" :   "+ portaldatas[3][2] }}</li>
+            <li class="diessel">POR : {{ portaldatas[4][0] +" :  "+ portaldatas[4][1] }}</li>
+        </div>
+
+        <div class="price_optima_wrapper box">
+        <h1>Price from optima</h1>
+            <!-- {% for optimasprice in optimasdata %}
+
+                    <li>{{ optimasprice[0] }}</li>
+                {% endfor %} -->
+                <li class="premium">OPT: {{ optimasdata[0][0] }}</li>
+                <li class="euro_regular">OPT:  {{ optimasdata[1][0] }}</li>
+                <li class="euro_dissel">OPT: {{ optimasdata[2][0] }}</li>
+                <li class="diessel">OPT: {{ optimasdata[3][0] }}</li> 
+        </div>
+    </div>
+    <div class="section2 "></div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
